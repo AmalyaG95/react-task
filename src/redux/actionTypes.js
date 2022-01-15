@@ -1,0 +1,8 @@
+export default Object.freeze({
+    SET_CATEGORIES: 'SET_CATEGORIES',
+    SET_CATS: 'SET_CATS',
+    SET_PAGE: 'SET_PAGE',
+    LOAD_CATS: 'LOAD_CATS',
+    RESET_PAGE: 'RESET_PAGE',
+    RESET_CATS: 'RESET_CATS',
+})

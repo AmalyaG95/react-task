@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+    a {
+        text-decoration: none;
+        color: coral;
+        padding: 2em;
+    }
+
+    .active {
+        background-color: rgb(238, 221, 180);
+        color: rgb(235, 72, 22);
+    }
+}
