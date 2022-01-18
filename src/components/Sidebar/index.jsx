@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './index.module.scss';
 import types from '../../redux/actionTypes';
 import { selectSidebarData } from '../../redux/selectors';
-import { getCategories } from '../../redux/actions';
+// import { getCategories } from '../../redux/actions';
 
 const Sidebar = () => {
     const { categories } = useSelector(selectSidebarData);
@@ -14,10 +14,18 @@ const Sidebar = () => {
     useEffect(() => {
         // getCategories();
         (async () => {
-            const response = await fetch('https://api.thecatapi.com/v1/categories');
-            const categories = await response.json();
+            try {
+                const response = await fetch('https://api.thecatapi.com/v1/categories');
+                const categoriesData = await response.json();
+                if (categoriesData.error) {
+                    throw categoriesData.error;
+                }
+                dispatch({ type: types.SET_CATEGORIES, categories: categoriesData });
 
-            dispatch({ type: types.SET_CATEGORIES, categories });
+            } catch (e) {
+                console.log(e);
+            }
+
         })()
     }, [dispatch]);
 

@@ -3,6 +3,7 @@ import types from '../actionTypes';
 const initialState = {
     cats: [],
     page: 1,
+    limit: 10,
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,15 +15,6 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        case types.LOAD_CATS: {
-            const catsCopy = state.cats;
-
-            return {
-                ...state,
-                cats: [...catsCopy, ...action.cats],
-            }
-        }
-
         case types.SET_PAGE: {
             return {
                 ...state,
@@ -30,10 +22,24 @@ const reducer = (state = initialState, action) => {
             }
         }
 
+        case types.SET_LIMIT: {
+            return {
+                ...state,
+                limit: state.limit + 10,
+            }
+        }
+
         case types.RESET_PAGE: {
             return {
                 ...state,
                 page: 1,
+            }
+        }
+
+        case types.RESET_LIMIT: {
+            return {
+                ...state,
+                limit: 10,
             }
         }
 

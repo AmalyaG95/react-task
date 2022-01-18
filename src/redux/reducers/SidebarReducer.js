@@ -11,6 +11,7 @@ const reducer = (state = initialState, action) => {
                 categories: action.categories,
             }
         }
+
         default: return state;
     }
 }

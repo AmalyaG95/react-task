@@ -5,6 +5,7 @@ const selectSidebarData = (state) => ({
 const selectCatsData = (state) => ({
   cats: state.CatsState.cats,
   page: state.CatsState.page,
+  limit: state.CatsState.limit,
 });
 
 export {
