@@ -6,10 +6,11 @@ import styles from './index.module.scss';
 import types from '../../redux/actionTypes';
 // import { getCatsByCategory } from '../../redux/actions';
 
-import { selectCatsData } from '../../redux/selectors';
+import { selectCatsData, selectSidebarData } from '../../redux/selectors';
 
 const Cats = () => {
     const { cats, page, limit } = useSelector(selectCatsData);
+    const { isOpened } = useSelector(selectSidebarData);
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -40,6 +41,9 @@ const Cats = () => {
         dispatch({ type: types.RESET_PAGE });
         dispatch({ type: types.RESET_LIMIT });
         dispatch({ type: types.RESET_CATS });
+        if (isOpened) {
+            dispatch({ type: types.RESET_IS_OPENED });
+        }
     }, [dispatch, id]);
 
     const loadMore = () => {

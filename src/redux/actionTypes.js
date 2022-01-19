@@ -1,5 +1,7 @@
 export default Object.freeze({
     SET_CATEGORIES: 'SET_CATEGORIES',
+    SET_IS_OPENED: 'SET_IS_OPENED',
+    RESET_IS_OPENED: 'RESET_IS_OPENED',
     SET_CATS: 'SET_CATS',
     SET_PAGE: 'SET_PAGE',
     SET_LIMIT: 'SET_LIMIT',

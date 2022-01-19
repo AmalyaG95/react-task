@@ -1,28 +1,68 @@
 .container {
   display: flex;
-  flex-direction: column;
-  width: 25%;
 
-  a {
-    text-decoration: none;
-    color: coral;
-    padding: 2em;
+  button {
+    position: fixed;
+    top: 8px;
+    left: 0;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+    display: none;
+    z-index: 15;
   }
 
-  @media (max-width: 800px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%;
+    min-width: 110px;
+    position: fixed;
+    top: 0;
+    background: white;
+    height: 100vh;
+    transition: 0.5s;
+
     a {
-      padding: 1em;
+      text-decoration: none;
+      color: coral;
+      padding: 2em;
+    }
+
+    @media (max-width: 768px) {
+      a {
+        padding: 1em;
+      }
+    }
+
+    .active {
+      background-color: rgb(238, 221, 180);
+      color: rgb(235, 72, 22);
     }
   }
+}
 
-  @media (max-width: 600px) {
-    a {
-      padding: 0.25em;
+@media (max-width: 478px) {
+  .container {
+    text-align: center;
+
+    button {
+      display: flex;
     }
-  }
 
-  .active {
-    background-color: rgb(238, 221, 180);
-    color: rgb(235, 72, 22);
+    .wrapper {
+      width: 0%;
+      left: -100%;
+
+      &.opened {
+        left: 0;
+        width: 100%;
+
+        a {
+          padding: 1.25em;
+        }
+      }
+    }
   }
 }

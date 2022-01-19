@@ -1,5 +1,6 @@
 const selectSidebarData = (state) => ({
   categories: state.SidebarState.categories,
+  isOpened: state.SidebarState.isOpened,
 });
 
 const selectCatsData = (state) => ({
