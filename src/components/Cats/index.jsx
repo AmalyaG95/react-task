@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import styles from './index.module.scss';
 import types from '../../redux/actionTypes';
-// import { getCatsByCategory } from '../../redux/actions';
+import { getCatsByCategory } from '../../redux/actions';
 
 import { selectCatsData, selectSidebarData } from '../../redux/selectors';
 
@@ -15,26 +15,10 @@ const Cats = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // getCatsByCategory(id);        
         if (cats.length === limit && page > 1) {
             return;
         }
-
-        (async () => {
-            try {
-                const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}&category_ids=${id}`);
-                const catsData = await response.json();
-                if (catsData.error) {
-                    throw catsData.error;
-                }
-
-                dispatch({ type: types.SET_CATS, cats: catsData });
-
-            } catch (e) {
-                console.log(e);
-            }
-
-        })()
+        dispatch(getCatsByCategory(id, limit, page));
     }, [dispatch, id, page, limit, cats.length]);
 
     useEffect(() => {

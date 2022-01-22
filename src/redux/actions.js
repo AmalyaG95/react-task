@@ -3,9 +3,12 @@ import types from "./actionTypes";
 const getCategories = () => async (dispatch) => {
     try {
         const response = await fetch('https://api.thecatapi.com/v1/categories');
-        const categories = await response.json();
+        const categoriesData = await response.json();
+        if (categoriesData.error) {
+            throw categoriesData.error;
+        }
+        dispatch({ type: types.SET_CATEGORIES, categories: categoriesData });
 
-        dispatch({ type: types.SET_CATEGORIES, categories });
     } catch (e) {
         console.log(e);
     }
@@ -13,12 +16,16 @@ const getCategories = () => async (dispatch) => {
 
 };
 
-const getCatsByCategory = (id) => async (dispatch) => {
+const getCatsByCategory = (id, limit, page) => async (dispatch) => {
     try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10&page=1&category_ids=${id}`);
-        const cats = await response.json();
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}&category_ids=${id}`);
+        const catsData = await response.json();
+        if (catsData.error) {
+            throw catsData.error;
+        }
 
-        dispatch({ type: types.SET_CATS, cats });
+        dispatch({ type: types.SET_CATS, cats: catsData });
+
     } catch (e) {
         console.log(e);
     }
