@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 import styles from './index.module.scss';
 import types from '../../redux/actionTypes';
-import { getCatsByCategory } from '../../redux/actions';
 
 import { selectCatsData, selectSidebarData } from '../../redux/selectors';
 
@@ -18,7 +17,7 @@ const Cats = () => {
         if (cats.length === limit && page > 1) {
             return;
         }
-        dispatch(getCatsByCategory(id, limit, page));
+        dispatch({type: types.GET_CATS, id, limit, page});
     }, [dispatch, id, page, limit, cats.length]);
 
     useEffect(() => {

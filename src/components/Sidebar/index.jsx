@@ -7,14 +7,13 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import styles from './index.module.scss';
 import types from '../../redux/actionTypes';
 import { selectSidebarData } from '../../redux/selectors';
-import { getCategories } from '../../redux/actions';
 
 const Sidebar = () => {
     const { categories, isOpened } = useSelector(selectSidebarData);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCategories());
+        dispatch({type: types.GET_CATEGORIES});
     }, [dispatch]);
 
     const toggleOpenSidebar = () => {

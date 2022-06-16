@@ -12,8 +12,6 @@ const getCategories = () => async (dispatch) => {
     } catch (e) {
         console.log(e);
     }
-
-
 };
 
 const getCatsByCategory = (id, limit, page) => async (dispatch) => {
