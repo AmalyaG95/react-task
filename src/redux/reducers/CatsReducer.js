@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case types.SET_CATS: {
             return {
                 ...state,
-                cats: action.cats
+                cats: action.payload
             }
         }
 

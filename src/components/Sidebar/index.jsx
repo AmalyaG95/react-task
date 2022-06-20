@@ -5,22 +5,22 @@ import cls from 'classnames';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import styles from './index.module.scss';
-import types from '../../redux/actionTypes';
 import { selectSidebarData } from '../../redux/selectors';
+import { getCategoriesRequest, resetIsOpen, setIsOpen } from '../../redux/actionCreators';
 
 const Sidebar = () => {
     const { categories, isOpened } = useSelector(selectSidebarData);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({type: types.GET_CATEGORIES});
+        dispatch(getCategoriesRequest());
     }, [dispatch]);
 
     const toggleOpenSidebar = () => {
         if (isOpened) {
-            dispatch({ type: types.RESET_IS_OPENED });
+            dispatch(resetIsOpen());
         } else {
-            dispatch({ type: types.SET_IS_OPENED });
+            dispatch(setIsOpen());
         }
     }
 

@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
         case types.SET_CATEGORIES: {
             return {
                 ...state,
-                categories: action.categories,
+                categories: action.payload,
             }
         }
 

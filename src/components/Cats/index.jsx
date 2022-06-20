@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import styles from './index.module.scss';
-import types from '../../redux/actionTypes';
-
 import { selectCatsData, selectSidebarData } from '../../redux/selectors';
+import { getCatsRequest, resetCats, resetIsOpen, resetLimit, resetPage, setLimit, setPage } from '../../redux/actionCreators';
 
 const Cats = () => {
     const { cats, page, limit } = useSelector(selectCatsData);
@@ -17,21 +16,21 @@ const Cats = () => {
         if (cats.length === limit && page > 1) {
             return;
         }
-        dispatch({type: types.GET_CATS, id, limit, page});
+        dispatch(getCatsRequest({id, limit, page}));
     }, [dispatch, id, page, limit, cats.length]);
 
     useEffect(() => {
-        dispatch({ type: types.RESET_PAGE });
-        dispatch({ type: types.RESET_LIMIT });
-        dispatch({ type: types.RESET_CATS });
+        dispatch(resetPage());
+        dispatch(resetLimit());
+        dispatch(resetCats());
         if (isOpened) {
-            dispatch({ type: types.RESET_IS_OPENED });
+            dispatch(resetIsOpen());
         }
     }, [dispatch, id]);
 
     const loadMore = () => {
-        dispatch({ type: types.SET_LIMIT });
-        dispatch({ type: types.SET_PAGE });
+        dispatch(setLimit());
+        dispatch(setPage());
     }
 
     return (
