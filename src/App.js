@@ -1,22 +1,25 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Cats from './components/Cats';
+import Question from './components/Question';
 import Home from './components/Home';
-import Sidebar from './components/Sidebar';
+import Results from './components/Results';
 
 function App() {
 
   return (
     <div className="App">
-      <Sidebar />
       <Routes>
         <Route
           path={'/'}
           element={<Home />}
         />
         <Route
-          path={'/:id'}
-          element={<Cats />}
+          path={'/results'}
+          element={<Results />}
+        />
+        <Route
+          path={'/question/:id'}
+          element={<Question />}
         />
       </Routes>
     </div>

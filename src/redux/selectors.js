@@ -1,15 +1,8 @@
-const selectSidebarData = (state) => ({
-  categories: state.SidebarState.categories,
-  isOpened: state.SidebarState.isOpened,
-});
-
-const selectCatsData = (state) => ({
-  cats: state.CatsState.cats,
-  page: state.CatsState.page,
-  limit: state.CatsState.limit,
-});
+const selectResultsData = (state) => ({
+  answer: state.ResultsState.answer,
+  answers: state.ResultsState.answers,
+})
 
 export {
-  selectSidebarData,
-  selectCatsData,
+  selectResultsData,
 };

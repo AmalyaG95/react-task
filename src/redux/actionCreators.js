@@ -24,6 +24,11 @@ const resetPage = createAction(types.RESET_PAGE);
 const setLimit = createAction(types.SET_LIMIT);
 const resetLimit = createAction(types.RESET_LIMIT);
 
+// Answers
+const setAnswer = createAction(types.SET_ANSWER);
+const addAnswer = createAction(types.ADD_ANSWER);
+const resetAnswers = createAction(types.RESET_ANSWERS);
+
 export {
     getCategoriesRequest,
     setCategories,
@@ -38,4 +43,7 @@ export {
     setLimit,
     resetLimit,
 
+    setAnswer,
+    addAnswer,
+    resetAnswers,
 };

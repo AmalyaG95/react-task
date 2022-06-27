@@ -10,4 +10,8 @@ export default Object.freeze({
     RESET_PAGE: 'RESET_PAGE',
     RESET_LIMIT: 'RESET_LIMIT',
     RESET_CATS: 'RESET_CATS',
+
+    SET_ANSWER: 'SET_ANSWER',
+    ADD_ANSWER: 'ADD_ANSWER',
+    RESET_ANSWERS: 'RESET_ANSWERS',
 })
