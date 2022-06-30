@@ -9,41 +9,32 @@ const createAction = (actionType) => (payload) => {
     });
 };
 
-// Sidebar
-const getCategoriesRequest = createAction(types.GET_CATEGORIES_REQUEST);
-const setCategories = createAction(types.SET_CATEGORIES);
-const setIsOpen = createAction(types.SET_IS_OPENED);
-const resetIsOpen = createAction(types.RESET_IS_OPENED);
-
-// Cats
-const getCatsRequest = createAction(types.GET_CATS_REQUEST);
-const setCats = createAction(types.SET_CATS);
-const resetCats = createAction(types.RESET_CATS);
-const setPage = createAction(types.SET_PAGE);
-const resetPage = createAction(types.RESET_PAGE);
-const setLimit = createAction(types.SET_LIMIT);
-const resetLimit = createAction(types.RESET_LIMIT);
-
-// Answers
-const setAnswer = createAction(types.SET_ANSWER);
-const addAnswer = createAction(types.ADD_ANSWER);
-const resetAnswers = createAction(types.RESET_ANSWERS);
+const setData = createAction(types.SET_USER_DATA);
+const resetUserData = createAction(types.RESET_USER_DATA);
+const addUserRequest = createAction(types.ADD_USER_REQUEST);
+const getUsersRequest = createAction(types.GET_USERS_REQUEST);
+const setUsers = createAction(types.SET_USERS);
+const deleteUserRequest = createAction(types.DELETE_USER_REQUEST);
+const setEditableUser = createAction(types.SET_EDITABLE_USER);
+const resetEditableUser = createAction(types.RESET_EDITABLE_USER);
+const openEditUserModal = createAction(types.OPEN_EDIT_USER_MODAL);
+const closeEditUserModal = createAction(types.CLOSE_EDIT_USER_MODAL);
+const editUserRequest = createAction(types.EDIT_USER_REQUEST);
+const openDropdown = createAction(types.OPEN_DROPDOWN)
+const closeDropdown = createAction(types.CLOSE_DROPDOWN)
 
 export {
-    getCategoriesRequest,
-    setCategories,
-    setIsOpen,
-    resetIsOpen,
-
-    getCatsRequest,
-    setCats,
-    resetCats,
-    setPage,
-    resetPage,
-    setLimit,
-    resetLimit,
-
-    setAnswer,
-    addAnswer,
-    resetAnswers,
+    setData,
+    resetUserData,
+    addUserRequest,
+    getUsersRequest,
+    setUsers,
+    deleteUserRequest,
+    setEditableUser,
+    resetEditableUser,
+    openEditUserModal,
+    closeEditUserModal,
+    editUserRequest,
+    openDropdown,
+    closeDropdown,
 };

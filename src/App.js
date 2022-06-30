@@ -1,27 +1,28 @@
 import { Route, Routes } from 'react-router-dom';
+
 import './App.scss';
-import Question from './components/Question';
-import Home from './components/Home';
-import Results from './components/Results';
+import AddUserForm from './components/AddUserForm';
+import Navbar from './components/Navbar';
+import UsersList from './components/UsersList';
 
 function App() {
-
   return (
     <div className="App">
-      <Routes>
-        <Route
-          path={'/'}
-          element={<Home />}
-        />
-        <Route
-          path={'/results'}
-          element={<Results />}
-        />
-        <Route
-          path={'/question/:id'}
-          element={<Question />}
-        />
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route
+            path={'/add-user'}
+            element={<AddUserForm />}
+          />
+          <Route
+            path={'/edit-user/:id'}
+            element={<AddUserForm />}
+          />
+          <Route
+            path={'/users'}
+            element={<UsersList />}
+          />
+        </Routes>
     </div>
   );
 }

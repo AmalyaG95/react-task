@@ -1,0 +1,61 @@
+.usersTable {
+    width: 95vw;
+    padding: 1em;
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 0.25em;
+        min-width: 100px;
+    }
+
+    .genderCell {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        .dropBtn {
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdownContent {
+            display: none;
+            position: absolute;
+            background-color: #f6f6f6;
+            min-width: 230px;
+            overflow: auto;
+            border: 1px solid #ddd;
+            z-index: 1;
+            top: 30px;
+
+            &.visible {
+                display: block;
+            }
+
+            .myMenu {
+                list-style-type: none;
+                li {
+                    padding: 0.2em 1em;
+                    display: block;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.noUsers {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
