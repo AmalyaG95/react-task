@@ -24,6 +24,11 @@
             padding: 1em 1.5em;
             border-radius: 6px;
             font-family: inherit;
+
+            &:disabled {
+                background: lighten(black, 20%);
+                cursor: none;
+            }
         }
     }
 }

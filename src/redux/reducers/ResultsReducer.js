@@ -1,7 +1,6 @@
 import types from '../actionTypes';
 
 const initialState = {
-    answer: {},
     answers: [],
 }
 
@@ -34,7 +33,6 @@ const reducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                // answer: '',
                 answers: answersCopy,
             }
         }

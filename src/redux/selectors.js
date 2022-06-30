@@ -1,8 +1,12 @@
+const selectQuestionData = (state) => ({
+  isOpenAlert: state.QuestionState.isOpenAlert,
+})
+
 const selectResultsData = (state) => ({
-  answer: state.ResultsState.answer,
   answers: state.ResultsState.answers,
 })
 
 export {
+  selectQuestionData,
   selectResultsData,
 };

@@ -1,16 +1,13 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
+import QuestionReducer from './reducers/QuestionReducer';
 import ResultsReducer from './reducers/ResultsReducer';
-import watcherSaga from './saga';
 
 const reducer = combineReducers({
+  QuestionState: QuestionReducer,
   ResultsState: ResultsReducer,
 });
 
-const sagaMiddleware = createSagaMiddleware();
-
-export const store = createStore(reducer, applyMiddleware(sagaMiddleware, logger));
-sagaMiddleware.run(watcherSaga);
+export const store = createStore(reducer, applyMiddleware(logger));
 
 window.store = store;
