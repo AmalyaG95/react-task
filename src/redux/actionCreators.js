@@ -20,8 +20,9 @@ const resetEditableUser = createAction(types.RESET_EDITABLE_USER);
 const openEditUserModal = createAction(types.OPEN_EDIT_USER_MODAL);
 const closeEditUserModal = createAction(types.CLOSE_EDIT_USER_MODAL);
 const editUserRequest = createAction(types.EDIT_USER_REQUEST);
-const openDropdown = createAction(types.OPEN_DROPDOWN)
-const closeDropdown = createAction(types.CLOSE_DROPDOWN)
+const openDropdown = createAction(types.OPEN_DROPDOWN);
+const closeDropdown = createAction(types.CLOSE_DROPDOWN);
+const setIsUserEnded = createAction(types.SET_IS_REQUEST_ENDED);
 
 export {
     setData,
@@ -37,4 +38,5 @@ export {
     editUserRequest,
     openDropdown,
     closeDropdown,
+    setIsUserEnded,
 };

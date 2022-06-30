@@ -5,6 +5,7 @@ const initialState = {
     editableUser: null,
     isOpenEditUserModal: false,
     isOpenDropdown: false,
+    isRequestEnded: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -55,6 +56,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isOpenDropdown: false,
+            }
+        }
+
+        case types.SET_IS_REQUEST_ENDED: {
+            return {
+                ...state,
+                isRequestEnded: action.payload,
             }
         }
 

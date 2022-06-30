@@ -20,7 +20,7 @@ const header = ["Name", "Last Name", "Address", "Phone", "Gender"];
 const UsersList = () => {
     const [selectedRowId, setSelectedRowId] = useState("");
     const dispatch = useDispatch();
-    const { users, isOpenEditUserModal, isOpenDropdown } =
+    const { users, isOpenEditUserModal, isOpenDropdown, isRequestEnded } =
         useSelector(selectUsersListData);
 
     useEffect(() => {
@@ -107,9 +107,7 @@ const UsersList = () => {
                         })}
                     </tbody>
                 </table>
-            ) : (
-                <p className={styles.noUsers}>No Users!</p>
-            )}
+            ) : isRequestEnded ? <p className={styles.noUsers}>No Users!</p>  : null}
 
             {isOpenEditUserModal && <EditUserModal />}
         </>

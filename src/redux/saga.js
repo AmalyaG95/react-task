@@ -2,7 +2,7 @@ import { takeLatest } from 'redux-saga/effects';
 import {call, put} from 'redux-saga/effects';
 
 import types from './actionTypes';
-import { resetUserData, setUsers } from './actionCreators';
+import { resetUserData, setIsUserEnded, setUsers } from './actionCreators';
 import { addUser } from './requests/AddUserForm';
 import { deleteUser, editUser, getUsers } from './requests/UsersList';
 
@@ -32,6 +32,8 @@ function* handleGetUsers() {
 
     } catch (e) {
         console.log(e);
+    } finally {
+        yield put(setIsUserEnded(true));
     }
 };
 
