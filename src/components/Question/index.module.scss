@@ -27,7 +27,7 @@
 
             &:disabled {
                 background: lighten(black, 20%);
-                cursor: none;
+                cursor: default;
             }
         }
     }
