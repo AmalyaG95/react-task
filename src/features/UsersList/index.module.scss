@@ -34,12 +34,13 @@
             border: 1px solid #ddd;
             z-index: 1;
             top: 30px;
+            right: 0;
 
             &.visible {
                 display: block;
             }
 
-            .myMenu {
+            .menu {
                 list-style-type: none;
                 li {
                     padding: 0.2em 1em;

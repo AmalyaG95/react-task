@@ -1,4 +1,4 @@
-export const addUser = (newUserData) => async () => {
+export const addUser = async (newUserData) =>  {
     const response = await fetch('https://test-15397-default-rtdb.firebaseio.com/users.json', {
         method: 'POST',
         headers: {

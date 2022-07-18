@@ -2,17 +2,17 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./index.module.scss";
-import { selectUsersListData } from "../../redux/selectors";
+import { selectUsersListData } from "../UsersList/usersListSlice";
 import {
     closeDropdown,
     closeEditUserModal,
-    editUserRequest,
+    editUserAsync,
     resetEditableUser,
     setEditableUser,
-} from "../../redux/actionCreators";
+} from "../UsersList/usersListSlice";
 
 const EditUserModal = () => {
-    const { editableUser, users } = useSelector(selectUsersListData);
+    const { editableUser } = useSelector(selectUsersListData);
     const dispatch = useDispatch();
 
     const handleCloseEditUserModal = () => {
@@ -30,7 +30,7 @@ const EditUserModal = () => {
     };
 
     const handleEditUser = () => {
-        dispatch(editUserRequest({ editableUser, users }));
+        dispatch(editUserAsync({ editableUser }));
         dispatch(closeEditUserModal());
         dispatch(resetEditableUser());
         dispatch(closeDropdown());

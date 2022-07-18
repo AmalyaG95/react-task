@@ -1,10 +1,10 @@
-export const getUsers = () => async () => {
+export const getUsers = async () => {
     const response = await fetch('https://test-15397-default-rtdb.firebaseio.com/users.json');
        
     return response.json();
 };
 
-export const deleteUser = (id) => async () => {
+export const deleteUser = async (id) => {
     const response = await fetch(`https://test-15397-default-rtdb.firebaseio.com/users/${id}.json`, {
         method: "DELETE",
       });
@@ -12,7 +12,7 @@ export const deleteUser = (id) => async () => {
     return response.json();
 };
 
-export const editUser = (editableUser) => async () => {
+export const editUser = async (editableUser) => {
     const response = await fetch(`https://test-15397-default-rtdb.firebaseio.com/users/${editableUser.id}.json`, {
         method: "PUT",
         headers: {

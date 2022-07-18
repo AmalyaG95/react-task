@@ -6,13 +6,13 @@ import cls from "classnames";
 import styles from "./index.module.scss";
 import {
     closeDropdown,
-    deleteUserRequest,
-    getUsersRequest,
+    deleteUserAsync,
     openDropdown,
     openEditUserModal,
     setEditableUser,
-} from "../../redux/actionCreators";
-import { selectUsersListData } from "../../redux/selectors";
+    getUsersAsync,
+} from "./usersListSlice";
+import { selectUsersListData } from "./usersListSlice";
 import EditUserModal from "../EditUserModal";
 
 const header = ["Name", "Last Name", "Address", "Phone", "Gender"];
@@ -24,7 +24,7 @@ const UsersList = () => {
         useSelector(selectUsersListData);
 
     useEffect(() => {
-        dispatch(getUsersRequest());
+        dispatch(getUsersAsync());
     }, []);
 
     const handleOpenDropdown = (id) => {
@@ -34,7 +34,7 @@ const UsersList = () => {
     };
 
     const handleDelete = (id) => {
-        dispatch(deleteUserRequest({ id, users }));
+        dispatch(deleteUserAsync({ id }));
     };
 
     const handleOpenEditUserModal = (user) => {
@@ -82,7 +82,7 @@ const UsersList = () => {
                                                 }
                                             )}
                                         >
-                                            <ul className={styles.myMenu}>
+                                            <ul className={styles.menu}>
                                                 <li
                                                     onClick={() =>
                                                         handleOpenEditUserModal(

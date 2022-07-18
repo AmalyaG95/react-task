@@ -2,20 +2,19 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './index.module.scss';
-import { addUserRequest, setData } from '../../redux/actionCreators';
-import { selectAddUserFormData } from '../../redux/selectors';
+import { addUserRequest, setUserData, selectAddUserFormData } from './addUserFormSlice';
 
 const AddUserForm = () => {
     const dispatch = useDispatch();
     const { AddUserFormData } = useSelector(selectAddUserFormData);
 
     const handleChange = (e, inputName) => {
-        dispatch(setData({data: e.target.value, inputName}))
-    }
+        dispatch(setUserData({data: e.target.value, inputName}))
+    };
 
     const handleAddUser = () => {
         if(Object.values(AddUserFormData).every(data => data)) dispatch(addUserRequest(AddUserFormData));
-    }
+    };
 
     return (
         <div className={styles.container}>
